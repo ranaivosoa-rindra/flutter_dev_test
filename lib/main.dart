@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test/service/api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,14 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final datas = Api();
+
+  @override
+  void initState() {
+    super.initState();
+    datas.getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
