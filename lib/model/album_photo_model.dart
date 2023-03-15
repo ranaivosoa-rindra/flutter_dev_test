@@ -2,16 +2,16 @@
 
 import 'package:json_annotation/json_annotation.dart';
 
-part "data_model.g.dart";
+part "album_photo_model.g.dart";
 
 @JsonSerializable()
-class DataModel {
+class AlbumPhotoModel {
   int albumId;
   int id;
   String title;
   String url;
   String thumbnailUrl;
-  DataModel({
+  AlbumPhotoModel({
     required this.albumId,
     required this.id,
     required this.title,
@@ -19,8 +19,8 @@ class DataModel {
     required this.thumbnailUrl,
   });
 
-  factory DataModel.fromJson(Map<String, dynamic> json) =>
-      _$DataModelFromJson(json);
+  factory AlbumPhotoModel.fromJson(Map<String, dynamic> json) =>
+      _$AlbumPhotoModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$DataModelToJson(this);
+  Map<String, dynamic> toJson() => _$AlbumPhotoModelToJson(this);
 }

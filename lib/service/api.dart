@@ -2,11 +2,20 @@
 
 import 'dart:convert';
 
-import 'package:flutter_application_test/model/data_model.dart';
+import 'package:flutter_application_test/model/album_photo_model.dart';
+import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
-class Api {
-  static Future<List<DataModel>> getData() async {
+class Controller extends GetxController {
+  var albumList = <AlbumPhotoModel>[].obs;
+
+  @override
+  void onInit() {
+    getData();
+    super.onInit();
+  }
+
+  Future getData() async {
     var url = Uri.parse("https://jsonplaceholder.typicode.com/photos");
 
     var response = await http.get(url);
@@ -19,8 +28,20 @@ class Api {
     print("decoded type: ${decoded.runtimeType}");
 
     if (response.statusCode == 200) {
-      return decoded.map((e) => DataModel.fromJson(e)).toList();
+      albumList
+          .addAll(decoded.map((e) => AlbumPhotoModel.fromJson(e)).toList());
+    } else {
+      Get.snackbar(
+          "Fetching data error", "Error code : ${response.statusCode}");
     }
-    return [];
+    // albumList.addAll(decoded.map((e) => AlbumPhotoModel.fromJson(e)).toList());
+
+    // if (response.statusCode == 200) {
+    //   return albumList;
+    // } else {
+    //   Get.snackbar(
+    //       "Fetching data error", "Error code : ${response.statusCode}");
+    //   return [];
+    // }
   }
 }

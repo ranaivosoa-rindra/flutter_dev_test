@@ -38,8 +38,12 @@ dependencies:
   # making HTTP requests with this package
   http: ^0.13.5
 
+  # setting json serialazable
   json_annotation: ^4.8.0
   build_runner: ^2.3.3
+
+  # state management with getX
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

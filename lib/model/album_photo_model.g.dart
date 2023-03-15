@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'data_model.dart';
+part of 'album_photo_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
+AlbumPhotoModel _$AlbumPhotoModelFromJson(Map<String, dynamic> json) =>
+    AlbumPhotoModel(
       albumId: json['albumId'] as int,
       id: json['id'] as int,
       title: json['title'] as String,
@@ -14,7 +15,8 @@ DataModel _$DataModelFromJson(Map<String, dynamic> json) => DataModel(
       thumbnailUrl: json['thumbnailUrl'] as String,
     );
 
-Map<String, dynamic> _$DataModelToJson(DataModel instance) => <String, dynamic>{
+Map<String, dynamic> _$AlbumPhotoModelToJson(AlbumPhotoModel instance) =>
+    <String, dynamic>{
       'albumId': instance.albumId,
       'id': instance.id,
       'title': instance.title,

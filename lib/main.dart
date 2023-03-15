@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test/screens/home_screen.dart';
 import 'package:flutter_application_test/service/api.dart';
+import 'package:get/get.dart';
 
-import 'model/data_model.dart';
+import 'controler_bindings.dart';
+import 'model/album_photo_model.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,37 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Application Test',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  Future<List<DataModel>> datas = Api.getData();
-
-  @override
-  void initState() {
-    super.initState();
-    // datas.getData();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(),
+      initialBinding: ControllerBindings(),
+      home: HomeScreen(),
     );
   }
 }
