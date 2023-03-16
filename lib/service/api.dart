@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 class Controller extends GetxController {
   var albumList = <AlbumPhotoModel>[].obs;
+  var newAlbumList = <AlbumPhotoModel>[].obs;
   var isLoading = false.obs;
   RxInt currentPage = 0.obs;
 
@@ -32,6 +33,24 @@ class Controller extends GetxController {
 
     if (response.statusCode == 200) {
       albumList
+          .addAll(decoded.map((e) => AlbumPhotoModel.fromJson(e)).toList());
+      isLoading(false);
+    } else {
+      isLoading(false);
+      Get.snackbar(
+          "Fetching data error", "Error code : ${response.statusCode}");
+    }
+  }
+
+  Future getFullAlbum() async {
+    var url = Uri.parse("https://jsonplaceholder.typicode.com/photos");
+
+    var response = await http.get(url);
+    var body = response.body;
+    var decoded = jsonDecode(body) as List<dynamic>;
+
+    if (response.statusCode == 200) {
+      newAlbumList
           .addAll(decoded.map((e) => AlbumPhotoModel.fromJson(e)).toList());
       isLoading(false);
     } else {
