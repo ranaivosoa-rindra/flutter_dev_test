@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test/model/album_photo_model.dart';
-
 import '../functions/custom_dialog.dart';
 
 Widget photoCard(AlbumPhotoModel data) => Padding(
