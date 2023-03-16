@@ -18,7 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: (!showSearchBar)
-            ? Text("Search for a specific photo")
+            ? Text("Search for a specific photo in the album")
             : TextField(
                 controller: textController,
                 decoration: InputDecoration(
