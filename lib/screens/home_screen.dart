@@ -44,11 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              child: Image.asset("assets/images/drawer_header_image.png"),
-              decoration: BoxDecoration(
-                color: Colors.grey,
-              ),
-            ),
+                child: Image.asset("assets/images/drawer_header_image.png")),
             ListTile(
               leading: Icon(Icons.dashboard),
               title: Text("Main list"),

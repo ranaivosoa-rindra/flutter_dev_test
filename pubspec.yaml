@@ -45,6 +45,9 @@ dependencies:
   # state management with getX
   get: ^4.6.5
 
+  # use svg
+  flutter_svg:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

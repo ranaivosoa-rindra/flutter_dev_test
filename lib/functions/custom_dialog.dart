@@ -18,17 +18,17 @@ void customDialog(AlbumPhotoModel data) {
             )),
         customDivider(),
         itemListTile(
-            "title : ",
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Text(
-                data.title,
-                style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 14,
-                ),
+          "title : ",
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Text(
+              data.title,
+              style: const TextStyle(
+                fontSize: 14,
               ),
-            )),
+            ),
+          ),
+        ),
         customDivider(),
         itemListTile(
             "Image url : ",

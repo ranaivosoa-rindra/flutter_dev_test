@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 Widget itemListTile(String leadingLabel, Widget widget) => ListTile(
       leading: Text(
         leadingLabel,
-        style: TextStyle(
-          color: Colors.black,
+        style: const TextStyle(
           fontWeight: FontWeight.w500,
         ),
       ),

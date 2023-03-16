@@ -11,7 +11,7 @@ Widget photoCard(AlbumPhotoModel data) => Padding(
         ),
         title: Text(
           data.title,
-          style: TextStyle(color: Colors.grey[600], fontSize: 13),
+          style: const TextStyle(fontSize: 13),
         ),
         trailing: IconButton(
           onPressed: () {

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_test/model/album_photo_model.dart';
 import 'package:flutter_application_test/widgets/search_bar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../service/api.dart';
 import '../widgets/photo_card.dart';
@@ -86,11 +87,11 @@ class _SearchScreenState extends State<SearchScreen> {
                       : Center(
                           child: Column(
                             children: [
-                              SizedBox(
-                                  height: 90,
-                                  width: 90,
-                                  child: Image.asset(
-                                      "assets/images/no-pictures.png")),
+                              SvgPicture.asset(
+                                "assets/images/image-not-found-icon.svg",
+                                width: 90,
+                                height: 90,
+                              ),
                               Text("Sorry, no photo found ..."),
                             ],
                           ),
