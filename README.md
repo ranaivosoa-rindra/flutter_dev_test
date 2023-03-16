@@ -38,6 +38,8 @@ Note: The app requires internet to load datas so do not forget to run your wifi 
 
 # Developer
 
+    - In the main list section of the app, I took all data from the api to prepare for the serching screen, also I used pagination to limit the data that I got from the API for more optimization of the app.
     - The presence of the subfolder .github/workflows/main.yml allows any developer who are using the app to perform ci/cd.
     - Thanks to that functionnality, if we want to get the apk , it is not necessary anymore to build the in the local machine before releasing it to github (or any other platform, eg: gitlab ci/cd ...).
     - So whenever the developer performs push/pull_request on specific branches such as main or release, it will automatically trigger all the jobs which are listed inside the corresponding jobs for the push/pull_request.
+    - The state management I used is GetX because , its popular , easy to use and still maintained by the community.
