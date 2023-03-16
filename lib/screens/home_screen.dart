@@ -1,11 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables, unused_local_variable, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_test/functions/custom_dialog.dart';
 import 'package:flutter_application_test/screens/search_screen.dart';
 import 'package:flutter_application_test/service/api.dart';
 import 'package:get/get.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:get/state_manager.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -79,103 +78,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     trailing: IconButton(
                       onPressed: () {
-                        Get.dialog(AlertDialog(
-                          scrollable: true,
-                          title: Text("Photo detail"),
-                          content: Column(
-                            children: [
-                              ListTile(
-                                leading: Text(
-                                  "id : ",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                title: Padding(
-                                  padding: const EdgeInsets.only(bottom: 8.0),
-                                  child: Text(data[index].id.toString()),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height: 0.5,
-                                margin: EdgeInsets.symmetric(vertical: 18),
-                                decoration: BoxDecoration(color: Colors.grey),
-                              ),
-                              ListTile(
-                                leading: Text(
-                                  "title : ",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                title: Padding(
-                                  padding: const EdgeInsets.only(bottom: 8.0),
-                                  child: Text(
-                                    data[index].title,
-                                    style: TextStyle(
-                                      color: Colors.grey[800],
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height: 0.5,
-                                margin: EdgeInsets.symmetric(vertical: 18),
-                                decoration: BoxDecoration(color: Colors.grey),
-                              ),
-                              ListTile(
-                                leading: Text(
-                                  "Image url : ",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                title: CircleAvatar(
-                                  child: Image.network(data[index].url),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height: 0.5,
-                                margin: EdgeInsets.symmetric(vertical: 18),
-                                decoration: BoxDecoration(color: Colors.grey),
-                              ),
-                              ListTile(
-                                leading: Text(
-                                  "ThumbnaiUrl : ",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                title: CircleAvatar(
-                                  child:
-                                      Image.network(data[index].thumbnailUrl),
-                                ),
-                              ),
-                            ],
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              child: Text('Ok'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Get.back();
-                              },
-                              child: Text('Back'),
-                            ),
-                          ],
-                        ));
+                        customDialog(data[index]);
                       },
                       icon: Icon(
                         Icons.arrow_forward_ios,
