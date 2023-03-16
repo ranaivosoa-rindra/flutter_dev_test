@@ -25,6 +25,9 @@ class _SearchScreenState extends State<SearchScreen> {
   List<AlbumPhotoModel> albumPhotos = [];
   List<AlbumPhotoModel> albumDisplay = [];
 
+  // we use this variable to hide the "no image found" when 1st time openning the search screen
+  bool isFirstTime = true;
+
   void searchPhoto(String searchedText) {
     query = searchedText.toLowerCase();
 
@@ -34,6 +37,7 @@ class _SearchScreenState extends State<SearchScreen> {
 
         return seachTitle.contains(query);
       }).toList();
+      isFirstTime = false;
     });
   }
 
@@ -50,6 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           centerTitle: true,
           title: Text(
@@ -65,16 +70,31 @@ class _SearchScreenState extends State<SearchScreen> {
                 margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 child: searchBar(textController, searchPhoto),
               ),
-              Expanded(
-                child: ListView.builder(
-                  physics: BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: albumDisplay.length,
-                  itemBuilder: (context, index) {
-                    return photoCard(albumDisplay[index]);
-                  },
-                ),
-              ),
+              (isFirstTime)
+                  ? SizedBox()
+                  : (albumDisplay.isNotEmpty)
+                      ? Expanded(
+                          child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: albumDisplay.length,
+                            itemBuilder: (context, index) {
+                              return photoCard(albumDisplay[index]);
+                            },
+                          ),
+                        )
+                      : Center(
+                          child: Column(
+                            children: [
+                              SizedBox(
+                                  height: 90,
+                                  width: 90,
+                                  child: Image.asset(
+                                      "assets/images/no-pictures.png")),
+                              Text("Sorry, no photo found ..."),
+                            ],
+                          ),
+                        ),
             ],
           ),
         ),
