@@ -1,7 +1,8 @@
 on:
   pull_request:
-    - main
-    - release
+    branches:
+      - main
+      - release
   push:
     branches:
       - main
