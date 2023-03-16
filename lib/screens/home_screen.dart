@@ -5,7 +5,6 @@ import 'package:flutter_application_test/screens/search_screen.dart';
 import 'package:flutter_application_test/service/api.dart';
 import 'package:flutter_application_test/widgets/photo_card.dart';
 import 'package:get/get.dart';
-
 import '../model/album_photo_model.dart';
 
 class HomeScreen extends StatefulWidget {
