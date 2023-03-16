@@ -3,10 +3,10 @@ on:
     branches:
       - main
       - release
-  # push:
-  #   branches:
-  #     - main
-  #     - release
+  push:
+    branches:
+      - main
+      - release
 
 name: "Release APK with CI/CD Workflow"
 
